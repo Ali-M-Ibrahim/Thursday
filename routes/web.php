@@ -7,6 +7,8 @@ use App\Http\Controllers\ResourceController;
 use App\Http\Controllers\Resource2Controller;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\CreateController;
+use App\Http\Controllers\ProductController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -100,3 +102,14 @@ Route::resource('myModel5',ResourceController::class)->except([
 
 Route::apiResource('test',ApiController::class);
 Route::get('create-student',[CreateController::class,"create"]);
+Route::get('create-product',[ProductController::class,"create1"]);
+Route::get('create-product2',[ProductController::class,"create2"]);
+Route::post('create-product3',[ProductController::class,"create3"]);
+Route::get('getProductById',[ProductController::class,'getElementById']);
+Route::get('getProductByCondition',[ProductController::class,'getElementByCondition']);
+Route::get('getElementByIdParam/{id}',[ProductController::class,'getElementByIdParam']);
+Route::get('updateElement/{id}',[ProductController::class,'updateElement']);
+
+Route::get('updateElementMass',[ProductController::class,'updateElementMass']);
+Route::get('deleteElement/{id}',[ProductController::class,'deleteElement']);
+Route::get('deleteMass',[ProductController::class,'deleteMass']);
