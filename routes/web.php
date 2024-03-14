@@ -8,7 +8,7 @@ use App\Http\Controllers\Resource2Controller;
 use App\Http\Controllers\ApiController;
 use App\Http\Controllers\CreateController;
 use App\Http\Controllers\ProductController;
-
+use App\Http\Controllers\RelationController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -150,3 +150,7 @@ Route::get('getFirstProductOr/{name}',[ProductController::class,'getFirstProduct
 
 
 Route::get('getProductBySeveralIdOrderByDesc/{id1}/{id2}/{id3}',[ProductController::class,'getProductBySeveralIdOrderByDesc']);
+
+
+Route::get('getCustomerById/{id}',[RelationController::class,'getCustomerById']);
+
