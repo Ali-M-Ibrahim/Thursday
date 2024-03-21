@@ -9,6 +9,10 @@ use App\Http\Controllers\ApiController;
 use App\Http\Controllers\CreateController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RelationController;
+use App\Http\Controllers\WebsiteController;
+
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ItemController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -153,4 +157,10 @@ Route::get('getProductBySeveralIdOrderByDesc/{id1}/{id2}/{id3}',[ProductControll
 
 
 Route::get('getCustomerById/{id}',[RelationController::class,'getCustomerById']);
+
+Route::get('firstPage',[WebsiteController::class,'index']);
+Route::resource('category',CategoryController::class);
+Route::get('deleteCategory/{id}',[CategoryController::class,'destroy'])->name('delete-category');
+Route::resource('item',ItemController::class);
+
 
