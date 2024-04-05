@@ -156,11 +156,16 @@ Route::get('getFirstProductOr/{name}',[ProductController::class,'getFirstProduct
 Route::get('getProductBySeveralIdOrderByDesc/{id1}/{id2}/{id3}',[ProductController::class,'getProductBySeveralIdOrderByDesc']);
 
 
-Route::get('getCustomerById/{id}',[RelationController::class,'getCustomerById']);
 
 Route::get('firstPage',[WebsiteController::class,'index']);
-Route::resource('category',CategoryController::class);
 Route::get('deleteCategory/{id}',[CategoryController::class,'destroy'])->name('delete-category');
 Route::resource('item',ItemController::class);
+Route::get('testMiddleware',[WebsiteController::class,'getData']);
+//    ->middleware('checksecret');
+Route::resource('category',CategoryController::class);
 
 
+Route::middleware(['checksecret'])->group(function () {
+    Route::get('getCustomerById/{id}',[RelationController::class,'getCustomerById']);
+
+});

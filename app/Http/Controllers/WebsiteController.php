@@ -8,6 +8,12 @@ use Illuminate\View\View;
 
 class WebsiteController extends Controller
 {
+
+    public function __construct()
+    {
+//        $this->middleware('checksecret');
+
+    }
     public function index(){
 
         $obj = Customer::find(1);
@@ -29,4 +35,10 @@ class WebsiteController extends Controller
         $added_variable = " I am data from function";
         View()->share('global_variable',$added_variable);
     }
+
+    public function getData(){
+        $obj = Customer::find(1);
+        return view('template');
+    }
+
 }
