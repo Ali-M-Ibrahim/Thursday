@@ -13,6 +13,11 @@ use App\Http\Controllers\WebsiteController;
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ItemController;
+use App\Http\Controllers\ImageController;
+
+use App\Http\Controllers\DIController;
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -169,3 +174,16 @@ Route::middleware(['checksecret'])->group(function () {
     Route::get('getCustomerById/{id}',[RelationController::class,'getCustomerById']);
 
 });
+
+
+Route::get('getImage',[ImageController::class,'index']);
+Route::post('postImage1',[ImageController::class,'method1'])->name('method1');
+Route::post('postImage2',[ImageController::class,'method2'])->name('method2');
+Route::get('getObject',[ImageController::class,'displayObject']);
+Route::post('postImage3',[ImageController::class,'method3'])->name('method3');
+
+Route::get('DI1',[DIController::class,'index']);
+Route::get('DI2',[DIController::class,'index2']);
+Route::get('DI3',[DIController::class,'index4']);
+Route::get('DI4',[DIController::class,'index5']);
+
