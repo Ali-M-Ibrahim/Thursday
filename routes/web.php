@@ -16,8 +16,7 @@ use App\Http\Controllers\ItemController;
 use App\Http\Controllers\ImageController;
 
 use App\Http\Controllers\DIController;
-
-
+use App\Http\Controllers\API2Controller;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -186,4 +185,6 @@ Route::get('DI1',[DIController::class,'index']);
 Route::get('DI2',[DIController::class,'index2']);
 Route::get('DI3',[DIController::class,'index4']);
 Route::get('DI4',[DIController::class,'index5']);
+Route::get('mytest',[WebsiteController::class,'mytest']);
 
+Route::apiResource('student',API2Controller::class);

@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Models\Customer;
+use App\Traits\ApiResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class WebsiteController extends Controller
 {
 
+    use ApiResponse;
     public function __construct()
     {
 //        $this->middleware('checksecret');
@@ -39,6 +41,13 @@ class WebsiteController extends Controller
     public function getData(){
         $obj = Customer::find(1);
         return view('template');
+    }
+
+
+    public function mytest(){
+        $obj = Customer::find(1);
+//       return  $this->SuccessResponse($obj);
+        return $this->ErrorResponse('Error has occured');
     }
 
 }
